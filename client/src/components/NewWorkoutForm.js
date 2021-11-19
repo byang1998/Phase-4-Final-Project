@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 function NewWorkoutForm({ planId, onAddWorkout }) {
   const [workouts, setWorkouts] = useState([]);
   const [workoutId, setWorkoutId] = useState("");
-  const [newexercise, setNewexercise] = useState("");
-  const [sets, setSets] = useState("");
-  const [reps, setReps] = useState("");
+
+  const [sets, setSets] = useState(0);
+  const [reps, setReps] = useState(0);
   const [formErrors, setFormErrors] = useState([]);
 
   useEffect(() => {
@@ -19,9 +19,8 @@ function NewWorkoutForm({ planId, onAddWorkout }) {
     const formData = {
       workout_id: workoutId,
       plan_id: planId,
-      newexercise: newexercise,
-      sets: parseInt(sets),
-      reps: parseInt(reps),
+      sets: sets,
+      reps: reps,
     };
     fetch("/workout_plans", {
       method: "POST",
@@ -36,7 +35,7 @@ function NewWorkoutForm({ planId, onAddWorkout }) {
           setFormErrors([]);
         });
       } else {
-        r.json().then((err) => setFormErrors(err.errors));
+        r.json().then((err) => setFormErrors(err.message));
       }
     });
   }
@@ -81,4 +80,4 @@ function NewWorkoutForm({ planId, onAddWorkout }) {
   );
 }
 
-export default PizzaForm;
+export default NewWorkoutForm;

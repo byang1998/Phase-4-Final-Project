@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import SinglePlan from './SinglePlan'
 
 function Home() {
   const [plans, setPlans] = useState([]);
@@ -10,28 +11,17 @@ function Home() {
       .then(setPlans);
   }, []);
 
-  function handleDelete(id) {
-    fetch(`/plans/${id}`, {
-      method: "DELETE",
-    }).then((r) => {
-      if (r.ok) {
-        setPlans((plans) =>
-          plans.filter((plan) => plan.id !== id)
-        );
-      }
-    });
-  }
+  // useEffect(() => {
+  //   console.log("changed")
+  // }, [plans]);
+
 
   return (
+  
+    
     <section className="container">
       {plans.map((plan) => (
-        <div key={plan.id} className="card">
-          <h2>
-            <Link to={`/plans/${plan.id}`}>{plan.name}</Link>
-          </h2>
-          <p>Category: {plan.category}</p>
-          <button onClick={() => handleDelete(plan.id)}>Delete</button>
-        </div>
+        <SinglePlan {...plan} setPlans={setPlans} plans={plans} />
       ))}
     </section>
   );

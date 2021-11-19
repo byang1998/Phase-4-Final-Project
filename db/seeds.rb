@@ -55,73 +55,73 @@ Plan.create!([
 puts " Seeding workouts..."
 Workout.create!([
     {
-        name: "Chest",
-        exercises: "Bench Press"
+      
+        name: "Bench Press"
     },
           {
-              name: "Chest",
-          exercises: "Dumbbell Press"
+          
+          name: "Dumbbell Press"
        },
        {
-           name: "Chest",
-           exercises: "Incline Bench Press"
+      
+           name: "Incline Bench Press"
        },
        {
-        name: "Chest",
-        exercises: "Dummbell Fly"
+   
+        name: "Dummbell Fly"
     },
           {
-              name: "Chest",
-          exercises: "Cable Chest Fly"
+      
+         name: "Cable Chest Fly"
        },
        {
-           name: "Back",
-           exercises: "Lat Pulldown"
+          
+          name: "Lat Pulldown"
        },
        {
-        name: "Back",
-        exercises: "Overhand Roll"
+  
+        name: "Overhand Roll"
     },
           {
-              name: "Back",
-          exercises: "Deadlift"
+          
+          name: "Deadlift"
        },
        {
-           name: "Back",
-           exercises: "Dumbbell Row"
+      
+           name: "Dumbbell Row"
        },
        {
-        name: "Legs",
-        exercises: "Squat"
+ 
+        name: "Squat"
     },
           {
-              name: "Legs",
-          exercises: "Leg Press"
+          
+          name: "Leg Press"
        },
        {
-           name: "Legs",
-           exercises: "Hamstring Curl"
+          
+           name: "Hamstring Curl"
        },
 
        {
-        name: "Abs",
-        exercises: "Sprinter Crunches"
+ 
+        name: "Sprinter Crunches"
     },
           {
-              name: "Abs",
-          exercises: "Bicycles"
+      
+          name: "Bicycles"
        },
        {
-           name: "Abs",
-           exercises: "Crunches"
+        
+           name: "Crunches"
        },
        {
-        name: "Cardio",
-        exercises: "Treadmill"
+      
+        name: "Treadmill"
     },
           {
-              name: "Cardio",
-          exercises: "Stairmasters"
+           
+         name: "Stairmasters"
        }
         ])
 
@@ -134,9 +134,9 @@ Workout.create!([
                 workout = Workout.find(Workout.pluck(:id).sample)
 
                 WorkoutPlan.create!(plan_id: plan.id, workout_id: workout.id, sets: rand(3..5), reps: rand(3..12))
-
-         
+            end  
+       
         end
-    end
+    
 
         puts " Done seeding!"

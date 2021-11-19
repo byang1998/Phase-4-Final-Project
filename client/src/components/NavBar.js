@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import logo from "../logo.png";
+//import logo from "../logo.png";
 
-function Navbar() {
+function NavBar() {
   return (
     <header>
       <div className="logo">
-        <img src={logo} alt="Gym logo" />
+       {/* <img src={logo} alt="Gym logo" /> */}
         <h1>BodyBuilding Plans</h1>
       </div>
       <nav>
@@ -15,4 +15,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavBar;

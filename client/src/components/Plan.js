@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NewWorkoutForm from "./PizzaForm";
+import NewWorkoutForm from "./NewWorkoutForm";
 
 function Home() {
-  const [{ data: restaurant, error, status }, setPlan] = useState({
+  const [{ data: plan, error, status }, setPlan] = useState({
     data: null,
     error: null,
     status: "pending",
@@ -46,12 +46,9 @@ function Home() {
       </div>
       <div className="card">
         <h2>Workouts</h2>
-        {plan.workouts.map((workout) => (
+        {plan.workouts&&plan.workouts.map((workout) => (
           <div key={workout.id}>
             <h3>{workout.name}</h3>
-            <p>
-              <em>{pizza.exercises}</em>
-            </p>
           </div>
         ))}
       </div>

@@ -1,20 +1,21 @@
-import { Route, Switch } from "react-router";
+import { Route, Routes } from "react-router";
 import Home from "./Home";
-import NavBar from "./Navbar";
-import Plan from "./Restaurant";
+import NavBar from "./NavBar";
+import Plan from "./Plan";
 
 function App() {
   return (
     <>
       <NavBar />
-      <Switch>
-        <Route exact path="/plans/:id">
-          <Plan />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Routes>
+      <Route path="/" element={<Home />} />
+        {/* <Route exact path="/plans/:id"> */}
+          {/* <Plan /> */}
+        {/* </Route> */}
+        <Route
+        path="plans/:id"
+        element={<Plan />}/>
+      </Routes>
     </>
   );
 }
